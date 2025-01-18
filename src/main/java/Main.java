@@ -12,7 +12,7 @@ public class Main {
                 break;
 
             if (input.startsWith("type") ) {
-                if (!input.substring(5).equals("invalid_command"))
+                if (!input.substring(5).startsWith("invalid_command"))
                     System.out.println(input.substring(5) + " is a shell builtin");
                 else System.out.println(input.substring(5)+": command not found" );
             }
