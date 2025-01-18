@@ -3,13 +3,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // Uncomment this block to pass the first stage
 
         Scanner sc = new Scanner(System.in);
         String input, typeSubstring;
         String[] commands = { "echo", "exit", "type" };
         while (true) {
-            System.out.println("$ ");
+            System.out.print("$ ");
             input = sc.nextLine();
 
             if (input.equals("exit 0")) {
