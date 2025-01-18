@@ -27,7 +27,6 @@ public class Main {
              else {
                 System.out.println(input + ": command not found");
             }
-            input = sc.nextLine();
         }
 
     }
