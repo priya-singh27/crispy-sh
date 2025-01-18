@@ -13,6 +13,7 @@ public class Main {
             input = sc.nextLine();
         } while (!input.matches(""));
 
+        System.out.println("$ exit 0");
         System.exit(0);
     }
 }
