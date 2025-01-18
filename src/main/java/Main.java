@@ -15,15 +15,19 @@ public class Main {
 
             if (input.equals("exit 0"))
                 break;
+
             else if (input.startsWith("echo")) {
                 System.out.println(input.substring(5));
             }
-            else if (input.startsWith("type") ) {
-                typeSubstring=input.substring(5);//after type type echo or type invalid_input
+
+            else if (input.startsWith("type")) {
+                typeSubstring = input.substring(5);//after type type echo or type invalid_input
                 if (Arrays.asList(commands).contains(typeSubstring))
                     System.out.println(typeSubstring + " is a shell builtin");
-                else System.out.println(typeSubstring+": not found" );
+                else
+                    System.out.println(typeSubstring + " not found");
             }
+            
              else {
                 System.out.println(input + ": command not found");
             }
