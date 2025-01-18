@@ -9,7 +9,8 @@ public class Main {
         String input = sc.nextLine();
         do {
             if (input.equals("exit 0")) break;
-            System.out.println(input + ": command not found");
+            else if(input.matches("^\\s*\\$\\s*echo.*")) System.out.println(input);
+            else System.out.println(input + ": command not found");
             System.out.print("$ ");
             input = sc.nextLine();
         } while (!input.matches(""));
