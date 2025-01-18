@@ -8,12 +8,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
         do {
+            if (input.equals("exit 0")) break;
             System.out.println(input + ": command not found");
             System.out.print("$ ");
             input = sc.nextLine();
         } while (!input.matches(""));
 
-        System.out.println("$ exit 0");
-        System.exit(0);
     }
 }
