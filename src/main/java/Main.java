@@ -12,5 +12,7 @@ public class Main {
             System.out.print("$ ");
             input = sc.nextLine();
         } while (!input.matches(""));
+
+        System.exit(0);
     }
 }
