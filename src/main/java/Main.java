@@ -13,20 +13,22 @@ public class Main {
             System.out.println("$ ");
             input = sc.nextLine();
 
-            if (input.equals("exit 0"))
+            if (input.equals("exit 0")) {
                 break;
-
+            }
+                
             else if (input.startsWith("echo")) {
                 System.out.println(input.substring(5));
             }
 
             else if (input.startsWith("type")) {
                 typeSubstring = input.substring(5);//after type type echo or type invalid_input
-                System.out.println("TRUE/FALSE"+Arrays.asList(commands).contains(typeSubstring));
-                if (Arrays.asList(commands).contains(typeSubstring))
+                if (Arrays.asList(commands).contains(typeSubstring)) {
                     System.out.println(typeSubstring + " is a shell builtin");
-                else
-                    System.out.println(typeSubstring + " not found");
+                }
+                else {
+                    System.out.println(typeSubstring + " not found");      
+                }
             }
             
              else {
