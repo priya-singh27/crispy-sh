@@ -22,6 +22,7 @@ public class Main {
 
             else if (input.startsWith("type")) {
                 typeSubstring = input.substring(5);//after type type echo or type invalid_input
+                System.out.println("typeSubstring, "+ typeSubstring);
                 if (Arrays.asList(commands).contains(typeSubstring))
                     System.out.println(typeSubstring + " is a shell builtin");
                 else
