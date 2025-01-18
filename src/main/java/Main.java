@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -6,24 +7,29 @@ public class Main {
         System.out.print("$ ");
 
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        do {
+        String input, typeSubstring;
+        String[] commands = { "echo", "exit", "type" };
+        while (true) {
+            System.out.println("$ ");
+            input = sc.nextLine();
+
             if (input.equals("exit 0"))
                 break;
-
-            if (input.startsWith("type") ) {
-                if (!input.substring(5).startsWith("invalid_command"))
-                    System.out.println(input.substring(5) + " is a shell builtin");
-                else System.out.println(input.substring(5)+": command not found" );
-            }
             else if (input.startsWith("echo")) {
                 System.out.println(input.substring(5));
-            } else {
+            }
+            else if (input.startsWith("type") ) {
+                typeSubstring=input.substring(5);//after type type echo or type invalid_input
+                if (Arrays.asList(commands).contains(typeSubstring))
+                    System.out.println(typeSubstring + " is a shell builtin");
+                else System.out.println(typeSubstring+": not found" );
+            }
+             else {
                 System.out.println(input + ": command not found");
             }
             System.out.print("$ ");
             input = sc.nextLine();
-        } while (!input.matches(""));
+        }
 
     }
 }
