@@ -7,7 +7,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String input, typeSubstring;
         String[] commands = { "echo", "exit", "type" };
-        System.setProperty("PATH", "C:\\Windows\\System32;C:\\Program Files");
         
         while (true) {
             System.out.print("$ ");
@@ -46,9 +45,11 @@ public class Main {
         String pathEnv = System.getenv("PATH");
         if (pathEnv == null) return null;
 
+        // Use colon as separator for Unix paths
         String[] directories = pathEnv.split(":");
         
         for (String directory : directories) {
+            // Use forward slash for Unix paths
             File file = new File(directory + "/" + command);
             if (file.exists() && file.canExecute()) {
                 return file.getAbsolutePath();
