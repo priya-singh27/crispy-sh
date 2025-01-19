@@ -27,14 +27,7 @@ public class Main {
                     System.out.println(typeSubstring + " is a shell builtin");
                 }
                 else {
-                    // Add .exe extension for Windows if no extension is provided
-                    String searchCommand = typeSubstring;
-                    if (System.getProperty("os.name").toLowerCase().contains("windows") 
-                        && !typeSubstring.toLowerCase().endsWith(".exe")) {
-                        searchCommand = typeSubstring + ".exe";
-                    }
-                    
-                    String path = searchInPath(searchCommand);
+                    String path = searchInPath(typeSubstring);
                     if (path != null) {
                         System.out.println(typeSubstring + " is " + path);
                     } else {
@@ -53,11 +46,9 @@ public class Main {
         String pathEnv = System.getenv("PATH");
         if (pathEnv == null) return null;
 
-        // Use colon as separator for Unix paths
         String[] directories = pathEnv.split(":");
         
         for (String directory : directories) {
-            // Use forward slash for Unix paths
             File file = new File(directory + "/" + command);
             if (file.exists() && file.canExecute()) {
                 return file.getAbsolutePath();
