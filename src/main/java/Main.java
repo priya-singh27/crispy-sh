@@ -53,10 +53,12 @@ public class Main {
         String pathEnv = System.getenv("PATH");
         if (pathEnv == null) return null;
 
-        String[] directories = pathEnv.split(";");
+        // Use colon as separator for Unix paths
+        String[] directories = pathEnv.split(":");
         
         for (String directory : directories) {
-            File file = new File(directory + File.separator + command);
+            // Use forward slash for Unix paths
+            File file = new File(directory + "/" + command);
             if (file.exists() && file.canExecute()) {
                 return file.getAbsolutePath();
             }
